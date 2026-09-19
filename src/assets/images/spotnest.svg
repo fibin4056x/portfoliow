@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="50%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#bgGrad)" />
+  <circle cx="250" cy="150" r="320" fill="#10b981" opacity="0.12" filter="blur(75px)" />
+  <circle cx="950" cy="620" r="260" fill="#06b6d4" opacity="0.1" filter="blur(75px)" />
+
+  <!-- App Window Container -->
+  <g transform="translate(60, 50)" filter="url(#shadow)">
+    <rect width="1080" height="650" rx="16" fill="#064e3b" opacity="0.9" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+
+    <!-- Window Header Bar -->
+    <rect width="1080" height="48" rx="16" fill="#022c22" />
+    <rect y="32" width="1080" height="16" fill="#022c22" />
+    <circle cx="30" cy="24" r="6" fill="#ef4444" />
+    <circle cx="50" cy="24" r="6" fill="#f59e0b" />
+    <circle cx="70" cy="24" r="6" fill="#10b981" />
+    <text x="540" y="29" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="600" text-anchor="middle">Spotnest — Property &amp; Rental Management App</text>
+
+    <!-- Top Navigation Bar inside app -->
+    <rect x="0" y="48" width="1080" height="60" fill="#064e3b" />
+    <text x="40" y="85" fill="#ffffff" font-family="sans-serif" font-size="20" font-weight="800">🏡 SPOT<tspan fill="#34d399">NEST</tspan></text>
+
+    <rect x="220" y="62" width="400" height="34" rx="17" fill="#022c22" stroke="rgba(255,255,255,0.1)" />
+    <text x="240" y="84" fill="#a7f3d0" font-family="sans-serif" font-size="12">📍 Search by City, Zip, or Neighborhood...</text>
+
+    <rect x="880" y="62" width="160" height="34" rx="8" fill="url(#emeraldGrad)" />
+    <text x="960" y="84" fill="#022c22" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">+ List Property</text>
+
+    <!-- Split Screen: Left Listing Cards, Right Interactive Map -->
+    <!-- Left Column: Properties -->
+    <g transform="translate(40, 125)">
+      <!-- Property Card 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="520" height="150" rx="12" fill="#022c22" opacity="0.8" stroke="rgba(255,255,255,0.08)" />
+        <rect x="12" y="12" width="160" height="126" rx="8" fill="#047857" />
+        <!-- House Graphic -->
+        <polygon points="92,40 40,80 144,80" fill="#34d399" />
+        <rect x="55" y="80" width="74" height="40" fill="#065f46" />
+
+        <text x="190" y="38" fill="#ffffff" font-family="sans-serif" font-size="16" font-weight="bold">The Grand Horizon Luxury Suites</text>
+        <text x="190" y="58" fill="#a7f3d0" font-family="sans-serif" font-size="12">📍 Downtown Bay Area, CA</text>
+        <text x="190" y="88" fill="#6ee7b7" font-family="sans-serif" font-size="12">🛏️ 3 Beds • 🛁 2 Baths • 📐 1,850 sqft</text>
+
+        <text x="190" y="125" fill="#34d399" font-family="sans-serif" font-size="18" font-weight="bold">$3,450<tspan fill="#a7f3d0" font-size="12" font-weight="normal">/mo</tspan></text>
+        <rect x="410" y="103" width="95" height="30" rx="6" fill="#10b981" />
+        <text x="457" y="122" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">View Details</text>
+      </g>
+
+      <!-- Property Card 2 -->
+      <g transform="translate(0, 165)">
+        <rect width="520" height="150" rx="12" fill="#022c22" opacity="0.8" stroke="rgba(255,255,255,0.08)" />
+        <rect x="12" y="12" width="160" height="126" rx="8" fill="#047857" />
+        <polygon points="92,40 40,80 144,80" fill="#38bdf8" />
+        <rect x="55" y="80" width="74" height="40" fill="#0369a1" />
+
+        <text x="190" y="38" fill="#ffffff" font-family="sans-serif" font-size="16" font-weight="bold">Pinecrest Modern Villa</text>
+        <text x="190" y="58" fill="#a7f3d0" font-family="sans-serif" font-size="12">📍 Hills Suburb, OR</text>
+        <text x="190" y="88" fill="#6ee7b7" font-family="sans-serif" font-size="12">🛏️ 4 Beds • 🛁 3.5 Baths • 📐 2,900 sqft</text>
+
+        <text x="190" y="125" fill="#34d399" font-family="sans-serif" font-size="18" font-weight="bold">$4,800<tspan fill="#a7f3d0" font-size="12" font-weight="normal">/mo</tspan></text>
+        <rect x="410" y="103" width="95" height="30" rx="6" fill="#10b981" />
+        <text x="457" y="122" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">View Details</text>
+      </g>
+
+      <!-- Property Card 3 -->
+      <g transform="translate(0, 330)">
+        <rect width="520" height="150" rx="12" fill="#022c22" opacity="0.8" stroke="rgba(255,255,255,0.08)" />
+        <rect x="12" y="12" width="160" height="126" rx="8" fill="#047857" />
+        <polygon points="92,40 40,80 144,80" fill="#f59e0b" />
+        <rect x="55" y="80" width="74" height="40" fill="#b45309" />
+
+        <text x="190" y="38" fill="#ffffff" font-family="sans-serif" font-size="16" font-weight="bold">Urban Lofts &amp; Co-Living</text>
+        <text x="190" y="58" fill="#a7f3d0" font-family="sans-serif" font-size="12">📍 Tech District, WA</text>
+        <text x="190" y="88" fill="#6ee7b7" font-family="sans-serif" font-size="12">🛏️ 2 Beds • 🛁 1 Bath • 📐 950 sqft</text>
+
+        <text x="190" y="125" fill="#34d399" font-family="sans-serif" font-size="18" font-weight="bold">$2,100<tspan fill="#a7f3d0" font-size="12" font-weight="normal">/mo</tspan></text>
+        <rect x="410" y="103" width="95" height="30" rx="6" fill="#10b981" />
+        <text x="457" y="122" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">View Details</text>
+      </g>
+    </g>
+
+    <!-- Right Column: Interactive Map View -->
+    <g transform="translate(580, 125)">
+      <rect width="460" height="480" rx="14" fill="#022c22" stroke="rgba(255,255,255,0.1)" />
+      
+      <!-- Map Roads / Grid Visual -->
+      <path d="M 0,100 Q 150,140 460,90" fill="none" stroke="#065f46" stroke-width="8" />
+      <path d="M 0,300 Q 200,220 460,350" fill="none" stroke="#065f46" stroke-width="12" />
+      <path d="M 180,0 L 180,480" fill="none" stroke="#065f46" stroke-width="6" />
+      <path d="M 340,0 L 340,480" fill="none" stroke="#065f46" stroke-width="8" />
+
+      <!-- Map Price Pins -->
+      <g transform="translate(120, 140)">
+        <rect x="0" y="0" width="70" height="26" rx="13" fill="#10b981" />
+        <text x="35" y="17" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">$3,450</text>
+      </g>
+
+      <g transform="translate(280, 240)">
+        <rect x="0" y="0" width="70" height="26" rx="13" fill="#34d399" />
+        <text x="35" y="17" fill="#022c22" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">$4,800</text>
+      </g>
+
+      <g transform="translate(200, 360)">
+        <rect x="0" y="0" width="70" height="26" rx="13" fill="#10b981" />
+        <text x="35" y="17" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">$2,100</text>
+      </g>
+    </g>
+  </g>
+</svg>
