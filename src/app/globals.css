@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-paper: #F4EFE3;
+    --text-ink: #14213D;
+    --accent-orange: #FF5A1F;
+    --grid-line: rgba(20, 33, 61, 0.07);
+    --grid-line-major: rgba(20, 33, 61, 0.15);
+    --border-ink: rgba(20, 33, 61, 0.25);
+    --surface-sheet: #F8F4EA;
+    --badge-bg: rgba(255, 90, 31, 0.08);
+    --badge-border: #FF5A1F;
+    --card-bg: rgba(255, 255, 255, 0.65);
+    --card-hover-border: #FF5A1F;
+    --font-heading: 'Space Grotesk', var(--font-sans), sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  .blueprint-inverted {
+    --bg-paper: #0B3D91;
+    --text-ink: #FFFFFF;
+    --accent-orange: #FF7A45;
+    --grid-line: rgba(255, 255, 255, 0.1);
+    --grid-line-major: rgba(255, 255, 255, 0.25);
+    --border-ink: rgba(255, 255, 255, 0.35);
+    --surface-sheet: #09347C;
+    --badge-bg: rgba(255, 122, 69, 0.15);
+    --badge-border: #FF7A45;
+    --card-bg: rgba(9, 44, 107, 0.7);
+    --card-hover-border: #FF7A45;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-paper);
+  color: var(--text-ink);
+  font-family: var(--font-sans), sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Faint Grid Paper Pattern */
+.blueprint-grid-bg {
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to right, var(--grid-line-major) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-major) 1px, transparent 1px);
+  background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+}
+
+/* CAD Crosshair Cursor overlay for desktop */
+@media (pointer: fine) {
+  .cad-cursor-active {
+    cursor: crosshair;
+  }
+}
+
+/* Hand-drawn & Drafting Accent Styles */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-mono-spec {
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+}
+
+.architect-border {
+  border: 1px solid var(--border-ink);
+}
+
+.architect-border-dashed {
+  border: 1px dashed var(--border-ink);
+}
+
+/* Custom Blueprint Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-paper);
+  border-left: 1px solid var(--border-ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-orange);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-ink);
+}
+
+/* Rubber Stamp Styling */
+.rubber-stamp {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 2px solid var(--badge-border);
+  color: var(--accent-orange);
+  background-color: var(--badge-bg);
+  box-shadow: 0 0 0 1px var(--badge-bg);
+  transform: rotate(-3deg);
+  user-select: none;
+}
+
+.rubber-stamp-live {
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+}
+
+.rubber-stamp-approved {
+  border-color: #10B981;
+  color: #10B981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Hatch Pattern for Diagrams */
+.hatch-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--grid-line-major),
+    var(--grid-line-major) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+}
+
+/* Focus Ring Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent-orange);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

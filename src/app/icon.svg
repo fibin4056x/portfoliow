@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background drafting box -->
+  <rect x="0" y="0" width="32" height="32" fill="#F4EFE3" rx="4"/>
+  <!-- Outer ink outline -->
+  <rect x="2" y="2" width="28" height="28" fill="none" stroke="#14213D" stroke-width="2"/>
+  <!-- Safety Orange Building Corner Mark -->
+  <path d="M 6 26 L 6 12 L 20 12 L 20 26 Z" fill="none" stroke="#FF5A1F" stroke-width="3"/>
+  <path d="M 20 12 L 26 6 L 26 20 L 20 26 Z" fill="#FF5A1F" opacity="0.3" stroke="#FF5A1F" stroke-width="2"/>
+  <!-- Corner CAD Tick Crosshair -->
+  <line x1="2" y1="6" x2="10" y2="6" stroke="#FF5A1F" stroke-width="1.5"/>
+  <line x1="6" y1="2" x2="6" y2="10" stroke="#FF5A1F" stroke-width="1.5"/>
+</svg>
