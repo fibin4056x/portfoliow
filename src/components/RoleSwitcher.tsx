@@ -30,11 +30,11 @@ export const RoleSwitcher: React.FC<{ roles: UserRole[] }> = ({ roles }) => {
       <div className="flex items-center justify-between mb-4 border-b border-[var(--border-ink)] pb-2 font-mono-spec">
         <div className="flex items-center space-x-2">
           <span className="text-[var(--accent-orange)] font-bold text-xs">[DWG SPEC 02]</span>
-          <h4 className="font-heading font-bold text-sm uppercase tracking-wider">
+          <h4 className="font-heading font-bold text-sm uppercase tracking-wider text-[var(--text-ink)]">
             Role-Based Permission Matrix & Feature Switcher
           </h4>
         </div>
-        <span className="text-[10px] opacity-60 hidden sm:inline">4 RBAC TIERS</span>
+        <span className="text-[10px] text-[var(--text-muted)] hidden sm:inline">4 RBAC TIERS</span>
       </div>
 
       {/* Role Tab Buttons */}
@@ -48,7 +48,7 @@ export const RoleSwitcher: React.FC<{ roles: UserRole[] }> = ({ roles }) => {
               className={`p-2.5 font-mono-spec text-xs font-bold border flex items-center justify-center space-x-2 transition-all ${
                 isSelected
                   ? 'border-[var(--accent-orange)] text-[var(--accent-orange)] bg-[var(--badge-bg)] shadow-xs'
-                  : 'border-[var(--border-ink)] opacity-70 hover:opacity-100 hover:border-[var(--accent-orange)] bg-[var(--bg-paper)]'
+                  : 'border-[var(--border-ink)] text-[var(--text-secondary)] hover:text-[var(--text-ink)] hover:border-[var(--accent-orange)] bg-[var(--bg-paper)]'
               }`}
             >
               {getRoleIcon(r.role)}
@@ -70,23 +70,23 @@ export const RoleSwitcher: React.FC<{ roles: UserRole[] }> = ({ roles }) => {
             </h5>
           </div>
           {selectedRole === 'Tenant' && (
-            <span className="px-2 py-1 font-mono-spec text-[10px] bg-emerald-500/10 border border-emerald-500 text-emerald-600 font-bold">
+            <span className="px-2 py-1 font-mono-spec text-[10px] bg-[var(--badge-bg)] border border-[var(--accent-orange)] text-[var(--accent-orange)] font-bold">
               ★ Customer becomes Tenant upon Owner acceptance
             </span>
           )}
         </div>
 
-        <p className="text-xs opacity-80 mb-3">{activeRoleData.description}</p>
+        <p className="text-xs text-[var(--text-secondary)] mb-3 leading-relaxed">{activeRoleData.description}</p>
 
         <div className="space-y-2">
-          <span className="font-mono-spec text-[10px] font-bold opacity-60 uppercase block">
+          <span className="font-mono-spec text-[10px] font-bold text-[var(--text-muted)] uppercase block">
             GRANTED CAPABILITIES & FEATURES:
           </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {activeRoleData.features.map((feat, idx) => (
               <div
                 key={idx}
-                className="flex items-start space-x-2 font-mono-spec text-xs p-2 border border-[var(--border-ink)] bg-[var(--surface-sheet)]"
+                className="flex items-start space-x-2 font-mono-spec text-xs p-2 border border-[var(--border-ink)] bg-[var(--surface-sheet)] text-[var(--text-ink)]"
               >
                 <Check className="w-3.5 h-3.5 text-[var(--accent-orange)] shrink-0 mt-0.5" />
                 <span>{feat}</span>

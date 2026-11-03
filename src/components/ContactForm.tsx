@@ -51,26 +51,26 @@ export const ContactForm: React.FC = () => {
   )}&body=${encodeURIComponent(`Hi Fibin,\n\n${formData.message}\n\nFrom: ${formData.name} (${formData.email})`)}`;
 
   return (
-    <div className="p-4 sm:p-6 border border-[var(--border-ink)] bg-[var(--surface-sheet)]">
+    <div className="navy-panel p-4 sm:p-6 border border-[var(--border-ink)] shadow-xs">
       <div className="flex items-center justify-between mb-4 border-b border-[var(--border-ink)] pb-2 font-mono-spec">
         <span className="font-bold text-xs text-[var(--accent-orange)]">
           [CONTRACTOR INQUIRY TRANSMISSION]
         </span>
-        <span className="text-[10px] opacity-60">FORM SPEC DWG-06</span>
+        <span className="text-[10px] text-[var(--text-muted)]">FORM SPEC DWG-06</span>
       </div>
 
       {status === 'success' ? (
-        <div className="p-6 border-2 border-emerald-500/40 bg-emerald-500/10 text-center space-y-3 font-mono-spec">
-          <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
+        <div className="p-6 border-2 border-[var(--accent-orange)] bg-[var(--badge-bg)] text-center space-y-3 font-mono-spec">
+          <CheckCircle2 className="w-10 h-10 text-[var(--accent-orange)] mx-auto" />
           <h4 className="font-heading font-bold text-lg text-[var(--text-ink)]">
             INQUIRY TRANSMITTED SUCCESSFULLY!
           </h4>
-          <p className="text-xs opacity-85 max-w-md mx-auto">
-            Your message has been logged in Fibin's project queue. Expect a response within 24 hours.
+          <p className="text-xs text-[var(--text-secondary)] max-w-md mx-auto">
+            Your message has been logged in Fibin&apos;s project queue. Expect a response within 24 hours.
           </p>
           <button
             onClick={() => setStatus('idle')}
-            className="px-4 py-2 border border-emerald-500 text-emerald-700 font-bold text-xs hover:bg-emerald-500/20"
+            className="px-4 py-2 border border-[var(--accent-orange)] text-[var(--accent-orange)] font-bold text-xs hover:bg-[var(--accent-orange)] hover:text-white transition-colors"
           >
             SEND ANOTHER SPECIFICATION
           </button>
@@ -79,7 +79,7 @@ export const ContactForm: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-4 font-mono-spec text-xs">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-[10px] font-bold uppercase mb-1 opacity-80">
+              <label className="block text-[11px] font-bold uppercase mb-1.5 text-[var(--text-secondary)]">
                 SENDER NAME <span className="text-[var(--accent-orange)]">*</span>
               </label>
               <input
@@ -88,11 +88,11 @@ export const ContactForm: React.FC = () => {
                 placeholder="e.g. Architect Sarah Jenkins"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full p-2.5 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] focus:border-[var(--accent-orange)] focus:outline-none"
+                className="w-full p-2.5 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-orange)] focus:ring-1 focus:ring-[var(--accent-orange)] focus:outline-none transition-colors"
               />
             </div>
             <div>
-              <label className="block text-[10px] font-bold uppercase mb-1 opacity-80">
+              <label className="block text-[11px] font-bold uppercase mb-1.5 text-[var(--text-secondary)]">
                 EMAIL ADDRESS <span className="text-[var(--accent-orange)]">*</span>
               </label>
               <input
@@ -101,13 +101,13 @@ export const ContactForm: React.FC = () => {
                 placeholder="sarah@company.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full p-2.5 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] focus:border-[var(--accent-orange)] focus:outline-none"
+                className="w-full p-2.5 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-orange)] focus:ring-1 focus:ring-[var(--accent-orange)] focus:outline-none transition-colors"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-[10px] font-bold uppercase mb-1 opacity-80">
+            <label className="block text-[11px] font-bold uppercase mb-1.5 text-[var(--text-secondary)]">
               SPECIFICATION SUBJECT
             </label>
             <input
@@ -115,12 +115,12 @@ export const ContactForm: React.FC = () => {
               required
               value={formData.subject}
               onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-              className="w-full p-2.5 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] focus:border-[var(--accent-orange)] focus:outline-none"
+              className="w-full p-2.5 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-orange)] focus:ring-1 focus:ring-[var(--accent-orange)] focus:outline-none transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-[10px] font-bold uppercase mb-1 opacity-80">
+            <label className="block text-[11px] font-bold uppercase mb-1.5 text-[var(--text-secondary)]">
               PROJECT BRIEF / MESSAGE DETAILS <span className="text-[var(--accent-orange)]">*</span>
             </label>
             <textarea
@@ -129,12 +129,12 @@ export const ContactForm: React.FC = () => {
               placeholder="Outline project requirements, timeline, or position details..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full p-2.5 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] focus:border-[var(--accent-orange)] focus:outline-none resize-none"
+              className="w-full p-2.5 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-orange)] focus:ring-1 focus:ring-[var(--accent-orange)] focus:outline-none resize-none transition-colors"
             />
           </div>
 
           {status === 'error' && (
-            <div className="p-3 border border-red-500/40 bg-red-500/10 text-red-600 flex items-center space-x-2 text-xs">
+            <div className="p-3 border border-[var(--accent-orange)] bg-[var(--badge-bg)] text-[var(--accent-orange)] flex items-center space-x-2 text-xs font-bold">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{errorMessage}</span>
             </div>
@@ -144,7 +144,7 @@ export const ContactForm: React.FC = () => {
             <button
               type="submit"
               disabled={status === 'submitting'}
-              className="px-6 py-3 bg-[var(--accent-orange)] text-white font-bold text-xs uppercase tracking-wider flex items-center space-x-2 shadow-xs hover:bg-[var(--accent-orange)]/90 transition-all disabled:opacity-50 focus:ring-2 focus:ring-[var(--accent-orange)]"
+              className="px-6 py-3 bg-[var(--accent-orange)] text-white font-bold text-xs uppercase tracking-wider flex items-center space-x-2 shadow-xs hover:bg-[var(--accent-orange-hover)] transition-all disabled:opacity-50 focus:ring-2 focus:ring-[var(--accent-orange)]"
             >
               {status === 'submitting' ? (
                 <span>TRANSMITTING...</span>
@@ -158,7 +158,7 @@ export const ContactForm: React.FC = () => {
 
             <a
               href={mailtoUrl}
-              className="px-4 py-3 border border-[var(--border-ink)] text-[var(--text-ink)] font-bold text-xs uppercase tracking-wider flex items-center space-x-2 hover:border-[var(--accent-orange)] transition-colors"
+              className="px-4 py-3 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] font-bold text-xs uppercase tracking-wider flex items-center space-x-2 hover:border-[var(--accent-orange)] hover:text-[var(--accent-orange)] transition-colors"
             >
               <Mail className="w-4 h-4 text-[var(--accent-orange)]" />
               <span>DIRECT MAILTO FALLBACK</span>

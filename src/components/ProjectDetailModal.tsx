@@ -24,9 +24,9 @@ export const ProjectDetailModal: React.FC = () => {
     ) || project.keyFeatures[0];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-xs overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/65 backdrop-blur-xs overflow-y-auto">
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] border-2 border-[var(--border-ink)] bg-[var(--bg-paper)] shadow-2xl overflow-y-auto flex flex-col my-auto"
+        className="navy-panel relative w-full max-w-4xl max-h-[90vh] border-2 border-[var(--border-ink)] shadow-2xl overflow-y-auto flex flex-col my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* =========================
@@ -36,11 +36,7 @@ export const ProjectDetailModal: React.FC = () => {
           <div className="flex items-center space-x-3">
             <StampBadge
               label={project.status}
-              variant={
-                project.status === 'LIVE'
-                  ? 'green'
-                  : 'orange'
-              }
+              variant="orange"
             />
 
             <div>
@@ -56,7 +52,7 @@ export const ProjectDetailModal: React.FC = () => {
 
           <button
             onClick={() => setActiveProjectModal(null)}
-            className="p-2 border border-[var(--border-ink)] hover:border-[var(--accent-orange)] text-[var(--text-ink)] focus:outline-none"
+            className="p-2 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] hover:border-[var(--accent-orange)] hover:text-[var(--accent-orange)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)]"
             aria-label="Close detail drawing modal"
           >
             <X className="w-5 h-5" />
@@ -69,14 +65,14 @@ export const ProjectDetailModal: React.FC = () => {
         <div className="p-4 sm:p-6 space-y-6">
 
           {/* Metadata */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-3 border border-[var(--border-ink)] bg-[var(--surface-sheet)] font-mono-spec text-xs">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-3 border border-[var(--border-ink)] bg-[var(--bg-paper)] font-mono-spec text-xs">
             {project.team && (
               <div>
-                <span className="opacity-60 text-[9px] block">
+                <span className="text-[var(--text-muted)] font-semibold text-[9px] block">
                   TEAM SIZE:
                 </span>
 
-                <span className="font-bold">
+                <span className="font-bold text-[var(--text-ink)]">
                   {project.team}
                 </span>
               </div>
@@ -84,11 +80,11 @@ export const ProjectDetailModal: React.FC = () => {
 
             {project.duration && (
               <div>
-                <span className="opacity-60 text-[9px] block">
+                <span className="text-[var(--text-muted)] font-semibold text-[9px] block">
                   DURATION:
                 </span>
 
-                <span className="font-bold">
+                <span className="font-bold text-[var(--text-ink)]">
                   {project.duration}
                 </span>
               </div>
@@ -96,7 +92,7 @@ export const ProjectDetailModal: React.FC = () => {
 
             {project.role && (
               <div className="col-span-2">
-                <span className="opacity-60 text-[9px] block">
+                <span className="text-[var(--text-muted)] font-semibold text-[9px] block">
                   MY ROLE SPEC:
                 </span>
 
@@ -113,7 +109,7 @@ export const ProjectDetailModal: React.FC = () => {
               SPECIFICATION SUMMARY:
             </h4>
 
-            <p className="text-sm sm:text-base leading-relaxed opacity-90">
+            <p className="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)]">
               {project.summary}
             </p>
           </div>
@@ -142,7 +138,7 @@ export const ProjectDetailModal: React.FC = () => {
                 [CALLOUT DRAWING SCHEMATIC]
               </span>
 
-              <span className="text-[10px] opacity-60">
+              <span className="text-[10px] text-[var(--text-muted)] font-semibold">
                 CLICK CALLOUT CIRCLES BELOW
               </span>
             </div>
@@ -151,7 +147,7 @@ export const ProjectDetailModal: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
               {project.keyFeatures.map((feature, index) => {
                 const isSelected =
-                  selectedCallout === feature.id;
+                  (selectedCallout || project.keyFeatures[0]?.id) === feature.id;
 
                 return (
                   <button
@@ -159,7 +155,7 @@ export const ProjectDetailModal: React.FC = () => {
                     onClick={() =>
                       setSelectedCallout(feature.id)
                     }
-                    className={`p-3 border text-left flex items-start space-x-3 transition-all ${
+                    className={`p-3 border text-left flex items-center space-x-3 transition-all ${
                       isSelected
                         ? 'border-[var(--accent-orange)] bg-[var(--badge-bg)] font-bold'
                         : 'border-[var(--border-ink)] bg-[var(--bg-paper)] hover:border-[var(--accent-orange)]'
@@ -176,7 +172,11 @@ export const ProjectDetailModal: React.FC = () => {
                     </div>
 
                     <div>
-                      <div className="font-heading text-xs font-bold text-[var(--text-ink)]">
+                      <div
+                        className={`font-heading text-xs font-bold ${
+                          isSelected ? 'text-[var(--accent-orange)]' : 'text-[var(--text-ink)]'
+                        }`}
+                      >
                         {feature.title}
                       </div>
                     </div>
@@ -197,7 +197,7 @@ export const ProjectDetailModal: React.FC = () => {
                   {activeFeature.title}
                 </h5>
 
-                <p className="text-xs sm:text-sm opacity-85 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
                   {activeFeature.description}
                 </p>
               </div>
@@ -219,7 +219,7 @@ export const ProjectDetailModal: React.FC = () => {
               {project.stack.map((item) => (
                 <span
                   key={item}
-                  className="px-2.5 py-1 font-mono-spec text-xs border border-[var(--border-ink)] bg-[var(--surface-sheet)]"
+                  className="px-2.5 py-1 font-mono-spec text-xs font-medium text-[var(--text-ink)] border border-[var(--border-ink)] bg-[var(--bg-paper)]"
                 >
                   {item}
                 </span>
@@ -242,7 +242,7 @@ export const ProjectDetailModal: React.FC = () => {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 bg-[var(--accent-orange)] text-white font-mono-spec font-bold text-xs flex items-center space-x-2 shadow-xs hover:bg-[var(--accent-orange)]/90 transition-colors focus:ring-2 focus:ring-[var(--accent-orange)]"
+                  className="px-4 py-2 bg-[var(--accent-orange)] text-white font-mono-spec font-bold text-xs flex items-center space-x-2 shadow-xs hover:bg-[var(--accent-orange-hover)] transition-colors focus:ring-2 focus:ring-[var(--accent-orange)]"
                 >
                   <span>LIVE DEMO</span>
 
@@ -256,9 +256,9 @@ export const ProjectDetailModal: React.FC = () => {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 border border-[var(--border-ink)] text-[var(--text-ink)] font-mono-spec font-bold text-xs flex items-center space-x-2 hover:border-[var(--accent-orange)] transition-colors"
+                  className="px-4 py-2 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] font-mono-spec font-bold text-xs flex items-center space-x-2 hover:border-[var(--accent-orange)] hover:text-[var(--accent-orange)] transition-colors"
                 >
-                  <GithubIcon className="w-3.5 h-3.5" />
+                  <GithubIcon className="w-3.5 h-3.5 text-[var(--accent-orange)]" />
 
                   <span>
                     {project.backendGithubUrl
@@ -274,16 +274,16 @@ export const ProjectDetailModal: React.FC = () => {
                   href={project.backendGithubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 border border-[var(--border-ink)] text-[var(--text-ink)] font-mono-spec font-bold text-xs flex items-center space-x-2 hover:border-[var(--accent-orange)] transition-colors"
+                  className="px-4 py-2 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] font-mono-spec font-bold text-xs flex items-center space-x-2 hover:border-[var(--accent-orange)] hover:text-[var(--accent-orange)] transition-colors"
                 >
-                  <GithubIcon className="w-3.5 h-3.5" />
+                  <GithubIcon className="w-3.5 h-3.5 text-[var(--accent-orange)]" />
 
                   <span>BACKEND</span>
                 </a>
               )}
             </div>
 
-            <div className="font-mono-spec text-[10px] opacity-60">
+            <div className="font-mono-spec text-[10px] text-[var(--text-muted)] font-semibold">
               DRAWING STATUS: RELEASED FOR PRODUCTION
             </div>
           </div>

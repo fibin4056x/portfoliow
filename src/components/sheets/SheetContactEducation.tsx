@@ -42,7 +42,7 @@ export const SheetContactEducation: React.FC = () => {
             {education.map((edu) => (
               <div
                 key={edu.id}
-                className="p-5 border border-[var(--border-ink)] bg-[var(--surface-sheet)] space-y-2 font-mono-spec text-xs"
+                className="navy-panel p-5 border border-[var(--border-ink)] space-y-2 font-mono-spec text-xs shadow-xs"
               >
                 <div className="flex items-center justify-between border-b border-[var(--border-ink)] pb-2">
                   <span className="font-bold text-sm text-[var(--text-ink)]">{edu.institution}</span>
@@ -51,10 +51,10 @@ export const SheetContactEducation: React.FC = () => {
                 <div className="font-heading text-base font-bold text-[var(--text-ink)] mt-1">
                   {edu.degree}
                 </div>
-                <div className="opacity-80">
+                <div className="text-[var(--text-secondary)]">
                   Stream: <span className="font-bold text-[var(--accent-orange)]">{edu.field}</span>
                 </div>
-                <div className="opacity-60 text-[10px]">
+                <div className="text-[var(--text-muted)] text-[11px]">
                   Location: {edu.location}
                 </div>
               </div>
@@ -73,16 +73,16 @@ export const SheetContactEducation: React.FC = () => {
           </div>
 
           {/* Right Column: Master Architectural Drafting Title Block */}
-          <div className="lg:col-span-5 p-6 border-4 border-[var(--border-ink)] bg-[var(--surface-sheet)] space-y-6 font-mono-spec shadow-xl">
+          <div className="navy-panel lg:col-span-5 p-6 border-2 border-[var(--border-ink)] space-y-6 font-mono-spec shadow-md">
             
             {/* Title Block Header */}
             <div className="border-b-2 border-[var(--border-ink)] pb-4 text-center space-y-1">
               <div className="flex justify-center mb-1">
-                <div className="w-10 h-10 border border-current flex items-center justify-center bg-[var(--bg-paper)]">
+                <div className="w-10 h-10 border border-[var(--border-ink)] flex items-center justify-center bg-[var(--bg-paper)]">
                   <Compass className="w-6 h-6 text-[var(--accent-orange)]" />
                 </div>
               </div>
-              <div className="text-[10px] opacity-60 uppercase tracking-widest">
+              <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-widest">
                 ARCHITECTURAL DRAWING TITLE BLOCK
               </div>
               <h3 className="font-heading font-extrabold text-2xl text-[var(--text-ink)]">
@@ -104,8 +104,8 @@ export const SheetContactEducation: React.FC = () => {
                   <Mail className="w-4 h-4 text-[var(--accent-orange)]" />
                 </div>
                 <div>
-                  <span className="opacity-60 text-[9px] block uppercase">EMAIL ADDRESS:</span>
-                  <span className="font-bold text-sm text-[var(--text-ink)] group-hover:text-[var(--accent-orange)]">
+                  <span className="text-[var(--text-muted)] text-[10px] block uppercase">EMAIL ADDRESS:</span>
+                  <span className="font-bold text-sm text-[var(--text-ink)] group-hover:text-[var(--accent-orange)] transition-colors">
                     {personalInfo.email}
                   </span>
                 </div>
@@ -119,8 +119,8 @@ export const SheetContactEducation: React.FC = () => {
                   <Phone className="w-4 h-4 text-[var(--accent-orange)]" />
                 </div>
                 <div>
-                  <span className="opacity-60 text-[9px] block uppercase">PHONE / WHATSAPP:</span>
-                  <span className="font-bold text-sm text-[var(--text-ink)] group-hover:text-[var(--accent-orange)]">
+                  <span className="text-[var(--text-muted)] text-[10px] block uppercase">PHONE / WHATSAPP:</span>
+                  <span className="font-bold text-sm text-[var(--text-ink)] group-hover:text-[var(--accent-orange)] transition-colors">
                     {personalInfo.phone}
                   </span>
                 </div>
@@ -131,7 +131,7 @@ export const SheetContactEducation: React.FC = () => {
                   <MapPin className="w-4 h-4 text-[var(--accent-orange)]" />
                 </div>
                 <div>
-                  <span className="opacity-60 text-[9px] block uppercase">PRIMARY LOCATION:</span>
+                  <span className="text-[var(--text-muted)] text-[10px] block uppercase">PRIMARY LOCATION:</span>
                   <span className="font-bold text-sm text-[var(--text-ink)]">
                     {personalInfo.location}
                   </span>
@@ -144,18 +144,18 @@ export const SheetContactEducation: React.FC = () => {
                   href={personalInfo.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 border border-[var(--border-ink)] bg-[var(--bg-paper)] font-bold text-center flex items-center justify-center space-x-2 hover:border-[var(--accent-orange)] transition-colors"
+                  className="p-2.5 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] font-bold text-center flex items-center justify-center space-x-2 hover:border-[var(--accent-orange)] hover:text-[var(--accent-orange)] transition-colors"
                 >
-                  <LinkedinIcon className="w-4 h-4 text-[#0A66C2]" />
+                  <LinkedinIcon className="w-4 h-4 text-[var(--accent-orange)]" />
                   <span>LINKEDIN</span>
                 </a>
                 <a
                   href={personalInfo.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 border border-[var(--border-ink)] bg-[var(--bg-paper)] font-bold text-center flex items-center justify-center space-x-2 hover:border-[var(--accent-orange)] transition-colors"
+                  className="p-2.5 border border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] font-bold text-center flex items-center justify-center space-x-2 hover:border-[var(--accent-orange)] hover:text-[var(--accent-orange)] transition-colors"
                 >
-                  <GithubIcon className="w-4 h-4" />
+                  <GithubIcon className="w-4 h-4 text-[var(--accent-orange)]" />
                   <span>GITHUB</span>
                 </a>
               </div>
@@ -163,27 +163,27 @@ export const SheetContactEducation: React.FC = () => {
             </div>
 
             {/* Drawing Metadata Stamp Grid */}
-            <div className="pt-4 border-t-2 border-[var(--border-ink)] grid grid-cols-2 gap-2 text-[9px] opacity-80">
+            <div className="pt-4 border-t-2 border-[var(--border-ink)] grid grid-cols-2 gap-2 text-[10px]">
               <div>
-                <span className="block opacity-50">SHEET NUMBER:</span>
+                <span className="block text-[var(--text-muted)]">SHEET NUMBER:</span>
                 <span className="font-bold text-[var(--accent-orange)]">SHEET A-06 / 06</span>
               </div>
               <div className="text-right">
-                <span className="block opacity-50">PROJECT SCALE:</span>
-                <span className="font-bold">SCALE 1:1</span>
+                <span className="block text-[var(--text-muted)]">PROJECT SCALE:</span>
+                <span className="font-bold text-[var(--text-ink)]">SCALE 1:1</span>
               </div>
               <div>
-                <span className="block opacity-50">REVISION DATE:</span>
-                <span className="font-bold">FEB 2026</span>
+                <span className="block text-[var(--text-muted)]">REVISION DATE:</span>
+                <span className="font-bold text-[var(--text-ink)]">FEB 2026</span>
               </div>
               <div className="text-right">
-                <span className="block opacity-50">APPROVAL STATUS:</span>
-                <span className="font-bold text-emerald-600">APPROVED</span>
+                <span className="block text-[var(--text-muted)]">APPROVAL STATUS:</span>
+                <span className="font-bold text-[var(--accent-orange)]">APPROVED</span>
               </div>
             </div>
 
             <div className="text-center pt-2">
-              <StampBadge label="FINAL RELEASE APPROVED" variant="green" rotate={-1} />
+              <StampBadge label="FINAL RELEASE APPROVED" variant="orange" rotate={-1} />
             </div>
 
           </div>

@@ -21,11 +21,11 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ archit
       <div className="flex items-center justify-between mb-4 border-b border-[var(--border-ink)] pb-2 font-mono-spec">
         <div className="flex items-center space-x-2">
           <span className="text-[var(--accent-orange)] font-bold text-xs">[DWG DIAGRAM 03]</span>
-          <h4 className="font-heading font-bold text-sm uppercase tracking-wider">
+          <h4 className="font-heading font-bold text-sm uppercase tracking-wider text-[var(--text-ink)]">
             System Topology & Data Flow Blueprint
           </h4>
         </div>
-        <span className="text-[10px] opacity-60">END-TO-END STACK</span>
+        <span className="text-[10px] text-[var(--text-muted)]">END-TO-END STACK</span>
       </div>
 
       {/* Interactive Flow Blocks */}
@@ -39,7 +39,7 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ archit
           <div className="font-heading font-bold text-xs text-[var(--text-ink)] mb-1">
             Client Application
           </div>
-          <p className="font-mono-spec text-[11px] opacity-80">
+          <p className="font-mono-spec text-[11px] text-[var(--text-secondary)]">
             {architecture.frontend}
           </p>
         </div>
@@ -53,7 +53,7 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ archit
           <div className="font-heading font-bold text-xs text-[var(--text-ink)] mb-1">
             REST API & Auth Server
           </div>
-          <p className="font-mono-spec text-[11px] opacity-80">
+          <p className="font-mono-spec text-[11px] text-[var(--text-secondary)]">
             {architecture.api}
           </p>
         </div>
@@ -68,7 +68,7 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ archit
             <div className="font-heading font-bold text-xs text-[var(--text-ink)] mb-1">
               Type-Safe Data Access
             </div>
-            <p className="font-mono-spec text-[11px] opacity-80">
+            <p className="font-mono-spec text-[11px] text-[var(--text-secondary)]">
               {architecture.orm}
             </p>
           </div>
@@ -81,7 +81,7 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ archit
             <div className="font-heading font-bold text-xs text-[var(--text-ink)] mb-1">
               JWT & Permissions
             </div>
-            <p className="font-mono-spec text-[11px] opacity-80">
+            <p className="font-mono-spec text-[11px] text-[var(--text-secondary)]">
               {architecture.auth}
             </p>
           </div>
@@ -96,7 +96,7 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ archit
           <div className="font-heading font-bold text-xs text-[var(--text-ink)] mb-1">
             Database Engine
           </div>
-          <p className="font-mono-spec text-[11px] opacity-80">
+          <p className="font-mono-spec text-[11px] text-[var(--text-secondary)]">
             {architecture.database}
           </p>
         </div>

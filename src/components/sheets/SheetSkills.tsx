@@ -46,12 +46,12 @@ export const SheetSkills: React.FC = () => {
         </div>
 
         {/* CAD Legend Instruction Bar */}
-        <div className="p-3 border border-[var(--border-ink)] bg-[var(--surface-sheet)] font-mono-spec text-xs flex flex-wrap items-center justify-between gap-2">
+        <div className="p-3 border border-[var(--border-ink)] bg-[var(--surface-cream)] font-mono-spec text-xs flex flex-wrap items-center justify-between gap-2 text-[var(--text-secondary)]">
           <div className="flex items-center space-x-2">
             <span className="text-[var(--accent-orange)] font-bold">✦ CAD INTERACTION:</span>
             <span>Hovering any material skill highlights connected projects in Sheet A-03</span>
           </div>
-          <span className="text-[10px] opacity-60">DWG NO: LEGEND-2026</span>
+          <span className="text-[10px] text-[var(--text-muted)] font-bold">DWG NO: LEGEND-2026</span>
         </div>
 
         {/* Legend Categories Grid */}
@@ -59,17 +59,17 @@ export const SheetSkills: React.FC = () => {
           {skillsCategories.map((cat) => (
             <div
               key={cat.id}
-              className="p-5 border border-[var(--border-ink)] bg-[var(--surface-sheet)] space-y-3"
+              className="navy-panel p-5 border border-[var(--border-ink)] space-y-3 shadow-xs"
             >
               {/* Category Header */}
-              <div className="flex items-center justify-between border-b border-[var(--border-ink)] pb-2 font-mono-spec">
+              <div className="flex items-center justify-between border-b border-[var(--border-ink)] pb-2.5 font-mono-spec">
                 <div className="flex items-center space-x-2">
                   {getCategoryIcon(cat.code)}
-                  <h3 className="font-heading font-bold text-sm text-[var(--text-ink)] uppercase">
+                  <h3 className="font-heading font-bold text-sm text-[var(--text-ink)] uppercase tracking-wide">
                     {cat.category}
                   </h3>
                 </div>
-                <span className="text-[10px] text-[var(--accent-orange)] font-bold">
+                <span className="text-[11px] text-[var(--accent-orange)] font-bold">
                   [{cat.code}]
                 </span>
               </div>
@@ -80,23 +80,24 @@ export const SheetSkills: React.FC = () => {
                   const skillIdLower = skill.name.toLowerCase();
                   const isHovered = hoveredSkillId === skillIdLower;
                   const isRelatedToHoveredProject = hoveredProjectId && skill.relatedProjects.includes(hoveredProjectId);
+                  const isActive = Boolean(isHovered || isRelatedToHoveredProject);
 
                   return (
                     <div
                       key={skill.name}
                       onMouseEnter={() => setHoveredSkillId(skillIdLower)}
                       onMouseLeave={() => setHoveredSkillId(null)}
-                      className={`p-2 border transition-all duration-200 cursor-pointer flex items-center justify-between ${
-                        isHovered || isRelatedToHoveredProject
+                      className={`p-2.5 border transition-all duration-200 cursor-pointer flex items-center justify-between ${
+                        isActive
                           ? 'border-[var(--accent-orange)] bg-[var(--accent-orange)] text-white font-bold scale-[1.02] shadow-xs'
                           : 'border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] hover:border-[var(--accent-orange)]'
                       }`}
                     >
                       <div className="flex items-center space-x-2">
-                        <span className="text-[9px] opacity-60">■</span>
-                        <span>{skill.name}</span>
+                        <span className={`text-[9px] ${isActive ? 'text-white' : 'text-[var(--accent-orange)]'}`}>■</span>
+                        <span className="font-medium">{skill.name}</span>
                       </div>
-                      <span className="text-[9px] opacity-70 uppercase tracking-widest">
+                      <span className={`text-[10px] uppercase tracking-widest font-semibold ${isActive ? 'text-white/90' : 'text-[var(--text-muted)]'}`}>
                         {skill.relatedProjects.length} DWG
                       </span>
                     </div>

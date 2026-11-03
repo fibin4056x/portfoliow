@@ -52,15 +52,15 @@ export const SVGBuildingDrawing: React.FC = () => {
   return (
     <div className="relative w-full max-w-lg mx-auto flex flex-col items-center">
       {/* CAD Schematic Header */}
-      <div className="w-full flex justify-between items-center mb-2 px-2 font-mono-spec text-[10px] opacity-70">
+      <div className="w-full flex justify-between items-center mb-2 px-2 font-mono-spec text-[10px] text-[var(--text-muted)] font-semibold">
         <span>ELEVATION: FULL-STACK ARCHITECTURE</span>
         <span>SCALE 1:50</span>
       </div>
 
       {/* Main SVG Blueprint Building */}
-      <div className="relative w-full aspect-[4/5] border border-[var(--border-ink)] p-4 bg-[var(--surface-sheet)] shadow-xs">
+      <div className="navy-panel relative w-full aspect-[4/5] border border-[var(--border-ink)] p-4 shadow-md">
         {/* Background Grid Ticks */}
-        <div className="absolute inset-0 pointer-events-none hatch-pattern opacity-10" />
+        <div className="absolute inset-0 pointer-events-none hatch-pattern opacity-15" />
 
         <svg
           viewBox="0 0 400 500"
@@ -82,9 +82,9 @@ export const SVGBuildingDrawing: React.FC = () => {
           <motion.text
             x="25"
             y="475"
-            fill="currentColor"
+            fill="var(--text-muted)"
             stroke="none"
-            className="font-mono-spec text-[9px] opacity-60"
+            className="font-mono-spec text-[9px] font-medium"
           >
             DATUM: GROUND DATUM ±0.00 (DATABASE)
           </motion.text>
@@ -130,7 +130,7 @@ export const SVGBuildingDrawing: React.FC = () => {
               variants={drawVariant}
               initial="hidden"
               animate="visible"
-              fill={activeLayer === 'frontend' ? 'rgba(255, 90, 31, 0.08)' : 'none'}
+              fill={activeLayer === 'frontend' ? 'var(--badge-bg)' : 'none'}
               stroke={activeLayer === 'frontend' ? 'var(--accent-orange)' : 'currentColor'}
               strokeWidth={activeLayer === 'frontend' ? 2.5 : 1.5}
             />
@@ -144,7 +144,7 @@ export const SVGBuildingDrawing: React.FC = () => {
               variants={drawVariant}
               initial="hidden"
               animate="visible"
-              fill={activeLayer === 'frontend' ? 'rgba(255, 90, 31, 0.12)' : 'none'}
+              fill={activeLayer === 'frontend' ? 'var(--badge-bg)' : 'none'}
               stroke={activeLayer === 'frontend' ? 'var(--accent-orange)' : 'currentColor'}
               strokeWidth={activeLayer === 'frontend' ? 2.5 : 1.5}
             />
@@ -174,7 +174,7 @@ export const SVGBuildingDrawing: React.FC = () => {
               variants={drawVariant}
               initial="hidden"
               animate="visible"
-              fill={activeLayer === 'api' ? 'rgba(255, 90, 31, 0.12)' : 'none'}
+              fill={activeLayer === 'api' ? 'var(--badge-bg)' : 'none'}
               stroke={activeLayer === 'api' ? 'var(--accent-orange)' : 'currentColor'}
               strokeWidth={activeLayer === 'api' ? 2.5 : 1.5}
             />
@@ -210,7 +210,7 @@ export const SVGBuildingDrawing: React.FC = () => {
               variants={drawVariant}
               initial="hidden"
               animate="visible"
-              fill={activeLayer === 'db' ? 'rgba(255, 90, 31, 0.12)' : 'none'}
+              fill={activeLayer === 'db' ? 'var(--badge-bg)' : 'none'}
               stroke={activeLayer === 'db' ? 'var(--accent-orange)' : 'currentColor'}
               strokeWidth={activeLayer === 'db' ? 2.5 : 1.5}
             />
@@ -237,7 +237,7 @@ export const SVGBuildingDrawing: React.FC = () => {
           <motion.line x1="335" y1="80" x2="365" y2="80" custom={5.6} variants={drawVariant} initial="hidden" animate="visible" />
           <motion.line x1="335" y1="460" x2="365" y2="460" custom={5.7} variants={drawVariant} initial="hidden" animate="visible" />
           <motion.line x1="355" y1="80" x2="355" y2="460" custom={5.8} variants={drawVariant} initial="hidden" animate="visible" strokeDasharray="4 2" />
-          <text x="360" y="270" stroke="none" fill="currentColor" className="font-mono-spec text-[9px] rotate-90 origin-left">
+          <text x="360" y="270" stroke="none" fill="var(--text-muted)" className="font-mono-spec text-[9px] font-medium rotate-90 origin-left">
             HEIGHT: 100% FULL-STACK
           </text>
         </svg>
@@ -252,12 +252,12 @@ export const SVGBuildingDrawing: React.FC = () => {
               <div className="font-mono-spec text-xs font-semibold text-[var(--text-ink)] mt-0.5">
                 {layersInfo.find((l) => l.id === activeLayer)?.tech}
               </div>
-              <div className="text-[11px] opacity-80 mt-0.5">
+              <div className="text-[11px] text-[var(--text-secondary)] mt-0.5">
                 {layersInfo.find((l) => l.id === activeLayer)?.detail}
               </div>
             </div>
           ) : (
-            <div className="flex items-center justify-between h-full font-mono-spec text-[11px] opacity-60">
+            <div className="flex items-center justify-between h-full font-mono-spec text-[11px] text-[var(--text-muted)]">
               <span>✦ Hover over building rooms to inspect architectural stack specs</span>
               <span className="text-[var(--accent-orange)] font-bold">[CAD DWG: 01-HERO]</span>
             </div>

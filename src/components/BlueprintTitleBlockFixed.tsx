@@ -21,29 +21,26 @@ export const BlueprintTitleBlockFixed: React.FC = () => {
   return (
     <div className="fixed bottom-3 right-3 z-30 hidden sm:block pointer-events-auto">
       <div
-        className="p-2 sm:p-3 border-2 border-[var(--border-ink)] bg-[var(--surface-sheet)] shadow-md font-mono-spec text-[10px] tracking-wider transition-all duration-300 max-w-xs"
-        style={{
-          boxShadow: isBlueprintMode ? '0 4px 12px rgba(0,0,0,0.5)' : '0 4px 12px rgba(20,33,61,0.1)',
-        }}
+        className="navy-panel p-2.5 sm:p-3 border-2 border-[var(--border-ink)] shadow-lg font-mono-spec text-[10px] tracking-wider transition-all duration-300 max-w-xs"
       >
-        <div className="grid grid-cols-2 gap-x-3 gap-y-1 border-b border-[var(--border-ink)] pb-1 mb-1">
+        <div className="grid grid-cols-2 gap-x-3 gap-y-1 border-b border-[var(--border-ink)] pb-1.5 mb-1.5">
           <div>
-            <span className="opacity-50 text-[8px] block">DRAWING TITLE:</span>
+            <span className="text-[var(--text-muted)] font-semibold text-[8px] block">DRAWING TITLE:</span>
             <span className="font-bold text-xs truncate block text-[var(--accent-orange)]">
               {getSheetName(activeSheet)}
             </span>
           </div>
           <div className="text-right">
-            <span className="opacity-50 text-[8px] block">CURRENT SHEET:</span>
+            <span className="text-[var(--text-muted)] font-semibold text-[8px] block">CURRENT SHEET:</span>
             <span className="font-bold text-xs text-[var(--accent-orange)]">
               SHEET {activeSheet} / 06
             </span>
           </div>
         </div>
 
-        <div className="flex items-center justify-between text-[9px] opacity-80 pt-0.5">
+        <div className="flex items-center justify-between text-[9px] text-[var(--text-secondary)] pt-0.5">
           <span>PROJECT: FIBIN PORTFOLIO</span>
-          <span className="font-bold">SCALE 1:1</span>
+          <span className="font-bold text-[var(--text-ink)]">SCALE 1:1</span>
           <span className="text-[var(--accent-orange)] font-bold">REV 2026</span>
         </div>
       </div>

@@ -36,12 +36,12 @@ export const SheetExperience: React.FC = () => {
             <div key={exp.id} className="relative group">
               
               {/* Timeline Node Point */}
-              <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-6 h-6 rounded-full border-2 border-[var(--accent-orange)] bg-[var(--surface-sheet)] flex items-center justify-center font-mono-spec text-[10px] font-bold text-[var(--accent-orange)] shadow-xs">
+              <div className="navy-panel absolute -left-[31px] sm:-left-[39px] top-1.5 w-6 h-6 rounded-full border-2 border-[var(--accent-orange)] flex items-center justify-center font-mono-spec text-[10px] font-bold text-[var(--accent-orange)] shadow-xs">
                 ▲
               </div>
 
               {/* Card Container */}
-              <div className="p-6 border border-[var(--border-ink)] bg-[var(--surface-sheet)] space-y-4 shadow-xs">
+              <div className="navy-panel p-6 border border-[var(--border-ink)] space-y-4 shadow-xs">
                 
                 {/* Role Header */}
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border-ink)] pb-3">
@@ -60,8 +60,8 @@ export const SheetExperience: React.FC = () => {
                       <Calendar className="w-3.5 h-3.5" />
                       <span>{exp.period}</span>
                     </div>
-                    <div className="flex items-center space-x-1 opacity-70 text-[10px]">
-                      <MapPin className="w-3 h-3" />
+                    <div className="flex items-center space-x-1 text-[var(--text-muted)] text-[11px]">
+                      <MapPin className="w-3 h-3 text-[var(--accent-orange)]" />
                       <span>{exp.location}</span>
                     </div>
                   </div>
@@ -74,7 +74,7 @@ export const SheetExperience: React.FC = () => {
                   {exp.highlights.map((bullet, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start space-x-3 text-xs sm:text-sm leading-relaxed text-[var(--text-ink)]"
+                      className="flex items-start space-x-3 text-xs sm:text-sm leading-relaxed text-[var(--text-secondary)]"
                     >
                       <CheckCircle2 className="w-4 h-4 text-[var(--accent-orange)] shrink-0 mt-0.5" />
                       <span>{bullet}</span>
@@ -83,7 +83,7 @@ export const SheetExperience: React.FC = () => {
                 </ul>
 
                 {/* Footer Stamp */}
-                <div className="pt-3 border-t border-[var(--border-ink)] flex items-center justify-between font-mono-spec text-[10px] opacity-70">
+                <div className="pt-3 border-t border-[var(--border-ink)] flex items-center justify-between font-mono-spec text-[11px] text-[var(--text-muted)]">
                   <span>VERIFIED SUPERVISOR LOG: BRIDGEON IT SOLUTIONS</span>
                   <span className="font-bold text-[var(--accent-orange)]">[STATUS: ACTIVE]</span>
                 </div>

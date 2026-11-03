@@ -17,11 +17,11 @@ export const CoreJourneyStepper: React.FC<{ steps: JourneyStep[] }> = ({ steps }
       <div className="flex items-center justify-between mb-4 border-b border-[var(--border-ink)] pb-2 font-mono-spec">
         <div className="flex items-center space-x-2">
           <span className="text-[var(--accent-orange)] font-bold text-xs">[DWG FLOW 01]</span>
-          <h4 className="font-heading font-bold text-sm uppercase tracking-wider">
+          <h4 className="font-heading font-bold text-sm uppercase tracking-wider text-[var(--text-ink)]">
             Rental Platform Core User Journey Workflow
           </h4>
         </div>
-        <span className="text-[10px] opacity-60 hidden sm:inline">7-STAGE SEQUENTIAL PIPELINE</span>
+        <span className="text-[10px] text-[var(--text-muted)] hidden sm:inline">7-STAGE SEQUENTIAL PIPELINE</span>
       </div>
 
       {/* Stepper Buttons Horizon */}
@@ -45,14 +45,14 @@ export const CoreJourneyStepper: React.FC<{ steps: JourneyStep[] }> = ({ steps }
                     ? 'border-[var(--accent-orange)] bg-[var(--accent-orange)] text-white scale-110 shadow-md'
                     : isPassed
                     ? 'border-[var(--accent-orange)] bg-[var(--surface-sheet)] text-[var(--accent-orange)]'
-                    : 'border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-ink)] opacity-70 group-hover:border-[var(--accent-orange)]'
+                    : 'border-[var(--border-ink)] bg-[var(--bg-paper)] text-[var(--text-secondary)] group-hover:border-[var(--accent-orange)] group-hover:text-[var(--text-ink)]'
                 }`}
               >
                 {isPassed ? <CheckCircle2 className="w-4 h-4" /> : s.step}
               </div>
               <span
                 className={`mt-2 font-mono-spec text-[10px] uppercase font-bold tracking-wider transition-colors ${
-                  isSelected ? 'text-[var(--accent-orange)] font-extrabold' : 'opacity-70'
+                  isSelected ? 'text-[var(--accent-orange)] font-extrabold' : 'text-[var(--text-secondary)] group-hover:text-[var(--text-ink)]'
                 }`}
               >
                 {s.title}
@@ -65,14 +65,14 @@ export const CoreJourneyStepper: React.FC<{ steps: JourneyStep[] }> = ({ steps }
       {/* Selected Step Description Spec Box */}
       {steps.find((s) => s.step === activeStep) && (
         <div className="mt-2 p-3 border border-[var(--border-ink)] bg-[var(--bg-paper)] font-mono-spec text-xs flex items-start space-x-3">
-          <div className="px-2 py-0.5 border border-[var(--accent-orange)] text-[var(--accent-orange)] font-bold text-[10px]">
+          <div className="px-2 py-0.5 border border-[var(--accent-orange)] bg-[var(--badge-bg)] text-[var(--accent-orange)] font-bold text-[10px] shrink-0">
             STAGE 0{activeStep} SPEC
           </div>
           <div className="flex-1">
             <div className="font-bold text-sm text-[var(--text-ink)]">
               {steps.find((s) => s.step === activeStep)?.title}:
             </div>
-            <p className="text-[12px] opacity-80 mt-0.5">
+            <p className="text-[12px] text-[var(--text-secondary)] mt-0.5 leading-relaxed">
               {steps.find((s) => s.step === activeStep)?.description}
             </p>
           </div>

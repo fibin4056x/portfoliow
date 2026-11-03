@@ -1,34 +1,54 @@
 @import "tailwindcss";
 
 @layer base {
-  :root {
+  :root,
+  .drafting-cream,
+  .blueprint-inverted {
+    /* 1. CREAM / OFF-WHITE: Primary page & section backgrounds */
     --bg-paper: #F4EFE3;
+    --surface-cream: #FAF7F0;
+
+    /* 2. DARK INK & MUTED GRAY: Primary & secondary text on cream backgrounds */
     --text-ink: #14213D;
-    --accent-orange: #FF5A1F;
-    --grid-line: rgba(20, 33, 61, 0.07);
-    --grid-line-major: rgba(20, 33, 61, 0.15);
-    --border-ink: rgba(20, 33, 61, 0.25);
-    --surface-sheet: #F8F4EA;
-    --badge-bg: rgba(255, 90, 31, 0.08);
-    --badge-border: #FF5A1F;
-    --card-bg: rgba(255, 255, 255, 0.65);
-    --card-hover-border: #FF5A1F;
+    --text-secondary: #2D3B55;
+    --text-muted: #475569;
+
+    /* 3. DARK NAVY: Restrained, desaturated navy for technical panels & cards */
+    --surface-sheet: #131F33;
+    --surface-well: #1B2B45;
+
+    /* 4. ORANGE: Primary technical accent */
+    --accent-orange: #E04F16;
+    --accent-orange-hover: #C2410C;
+    --badge-bg: rgba(224, 79, 22, 0.10);
+    --badge-border: #E04F16;
+    --card-bg: #131F33;
+    --card-hover-border: #E04F16;
+
+    /* Technical grid & borders on cream paper */
+    --grid-line: rgba(20, 33, 61, 0.06);
+    --grid-line-major: rgba(20, 33, 61, 0.12);
+    --border-ink: rgba(20, 33, 61, 0.22);
+
     --font-heading: 'Space Grotesk', var(--font-sans), sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
   }
 
-  .blueprint-inverted {
-    --bg-paper: #0B3D91;
-    --text-ink: #FFFFFF;
-    --accent-orange: #FF7A45;
-    --grid-line: rgba(255, 255, 255, 0.1);
-    --grid-line-major: rgba(255, 255, 255, 0.25);
-    --border-ink: rgba(255, 255, 255, 0.35);
-    --surface-sheet: #09347C;
-    --badge-bg: rgba(255, 122, 69, 0.15);
-    --badge-border: #FF7A45;
-    --card-bg: rgba(9, 44, 107, 0.7);
-    --card-hover-border: #FF7A45;
+  /* Scoped variables for Deep Desaturated Navy technical panels, cards, diagrams & modals */
+  .navy-panel {
+    background-color: #131F33;
+    color: #F8FAFC;
+    --bg-paper: #1B2B45;
+    --surface-sheet: #131F33;
+    --text-ink: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    --border-ink: rgba(226, 232, 240, 0.18);
+    --grid-line-major: rgba(226, 232, 240, 0.12);
+    --accent-orange: #FF6B35;
+    --accent-orange-hover: #E85A25;
+    --badge-bg: rgba(255, 107, 53, 0.15);
+    --badge-border: #FF6B35;
   }
 }
 
@@ -36,16 +56,29 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+body,
+.drafting-cream,
+.blueprint-inverted {
   background-color: var(--bg-paper);
   color: var(--text-ink);
   font-family: var(--font-sans), sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
   overflow-x: hidden;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.9;
 }
 
 /* Faint Grid Paper Pattern */
 .blueprint-grid-bg {
+  background-color: var(--bg-paper);
+  color: var(--text-ink);
   background-image: 
     linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
@@ -116,15 +149,11 @@ body {
   user-select: none;
 }
 
-.rubber-stamp-live {
+.rubber-stamp-live,
+.rubber-stamp-approved {
   border-color: var(--accent-orange);
   color: var(--accent-orange);
-}
-
-.rubber-stamp-approved {
-  border-color: #10B981;
-  color: #10B981;
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: var(--badge-bg);
 }
 
 /* Hatch Pattern for Diagrams */

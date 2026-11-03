@@ -35,33 +35,28 @@ export const CADCrosshair: React.FC = () => {
     <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden hidden md:block">
       {/* Horizontal hair line */}
       <div
-        className="absolute left-0 right-0 h-[1px] opacity-30 transition-colors duration-200"
+        className="absolute left-0 right-0 h-[1px] opacity-25 transition-colors duration-200 bg-[var(--accent-orange)]"
         style={{
           top: `${coords.y}px`,
-          backgroundColor: isBlueprintMode ? '#FFFFFF' : '#FF5A1F',
         }}
       />
       {/* Vertical hair line */}
       <div
-        className="absolute top-0 bottom-0 w-[1px] opacity-30 transition-colors duration-200"
+        className="absolute top-0 bottom-0 w-[1px] opacity-25 transition-colors duration-200 bg-[var(--accent-orange)]"
         style={{
           left: `${coords.x}px`,
-          backgroundColor: isBlueprintMode ? '#FFFFFF' : '#FF5A1F',
         }}
       />
 
       {/* Coordinate Badge near cursor */}
       <div
-        className="absolute transform translate-x-3 translate-y-3 px-2 py-1 font-mono-spec text-[10px] uppercase tracking-wider shadow-sm backdrop-blur-xs transition-colors duration-200"
+        className="navy-panel absolute transform translate-x-3 translate-y-3 px-2 py-1 font-mono-spec text-[10px] uppercase tracking-wider shadow-sm border border-[var(--accent-orange)]"
         style={{
           left: `${coords.x}px`,
           top: `${coords.y}px`,
-          backgroundColor: isBlueprintMode ? 'rgba(11, 61, 145, 0.9)' : 'rgba(244, 239, 227, 0.95)',
-          color: isBlueprintMode ? '#FFFFFF' : '#14213D',
-          border: `1px solid ${isBlueprintMode ? '#FF7A45' : '#FF5A1F'}`,
         }}
       >
-        <span className="text-[#FF5A1F] font-bold mr-1">CAD-2026</span>
+        <span className="text-[var(--accent-orange)] font-bold mr-1">CAD-2026</span>
         X:{String(Math.round(coords.x)).padStart(4, '0')} Y:{String(Math.round(coords.y)).padStart(4, '0')} · {activeSheet}
       </div>
     </div>
